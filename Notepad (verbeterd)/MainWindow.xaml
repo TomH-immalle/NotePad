@@ -1,0 +1,42 @@
+﻿<Window x:Class="Notepad__verbeterd_.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Notepad__verbeterd_"
+        mc:Ignorable="d"
+        Title="Notepad (verbeterd)" Height="357" Width="535">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File" >
+                <MenuItem Header="_Open" Click="OpenItem_Click"/>
+                <MenuItem Header="_Save" Click="SaveItem_Click"/>
+                <Separator />
+                <MenuItem Header="E_xit" Name="exitItem" Click="exitItem_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Help">
+                <MenuItem Header="_About" Click="AboutItem_Click"/>
+            </MenuItem>
+            <MenuItem Header="Tools">
+                <MenuItem Header="Parse" Click="ParseItem_Click"/>
+                <MenuItem Header="Show PersonenLijst" Click="ShowPersonen_Click"/>
+            </MenuItem>
+        </Menu>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="19*"/>
+                <ColumnDefinition Width="242*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="261*"/>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="fileContents" Grid.Column="0" AcceptsTab="True" AcceptsReturn="True" Foreground="Black" Background="White" Grid.ColumnSpan="2"></TextBox>
+            <GridSplitter HorizontalAlignment="Right" 
+                  VerticalAlignment="Stretch" 
+                  Grid.Column="2" ResizeBehavior="PreviousAndNext"
+                  Width="5" Background="#FFBCBCBC"/>
+            <DataGrid x:Name="parseDataGrid" Grid.Column="3"/>
+        </Grid>
+
+
+    </DockPanel>
+</Window>
